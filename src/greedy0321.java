@@ -22,7 +22,6 @@ public class greedy0321 {
         for (int i = 0; i < n; i++) {
             tmp[i] = i + 1;
         }
-
         // 여분의체육복을 가지고있는 학생확인
         for(int i = 0; i < tmp.length; i++){
             for(int j = 0; j < reserve.length; j++){
@@ -41,12 +40,17 @@ public class greedy0321 {
             }
         }
 
-        for(int i = 0; i < tmp.length; i++)
-
-
         for (int num : tmp) {
             System.out.println(num);
         }
+
+
+        for(int i = 0; i < tmp.length; i++){
+            
+        }
+
+
+
 
     }
 
