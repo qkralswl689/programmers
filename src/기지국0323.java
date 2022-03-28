@@ -1,8 +1,70 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class 기지국0323 {
     public static void main(String[] args) {
 
+        // 강사 풀이
+
+        // 아파트의 개수
+        int n = 11;
+
+        // 기지국이 설치된 아파트의 번호
+        int[] stations = {4, 11};
+
+        // 전파의 도달거리
+        int w = 1;
+
+        int answer = 0;
+
+        int si = 0; // 스테이션의 인덱스를 사용한다
+
+     /*   // Queue 사용시 효율성 떨어짐
+        Queue<Integer> sq = new LinkedList<>();
+        for(int s : stations) sq.offer(s);*/
+
+        int position = 1; //
+
+        while (position <=n){ //아파트 전체 돌때까찌
+
+            // 인덱스가 끝까지 가지 않아있을때
+            if( si < stations.length && stations[si] - w <= position){
+
+                position = stations[si] + w + 1; //인덱스 번째의 값을 꺼내오고
+                si ++; // 인덱스 증가
+            }else {// 그렇지 않다면
+
+                answer += 1; // 기지국 설치
+                position += w + 1 + w; // 최대 전파범위(왼) + 현재위치 + 최대 전파범위(오)
+                // -> 전체 전파범위 == w * 2 + 1
+
+            }
+
+        }
+
+        // queue 사용시
+      /*  while (position <=n){ //아파트 전체 돌때까찌
+
+            // Queue 가 비어있지 않은것 체크
+           if( !sq.isEmpty() && sq.peek() - w <= position){ // 현재 있는곳이 기지국이 있는곳의 왼쪽끝 전파범위  보다 현재위치가 오른쪽이라면 기지국의 전파범위 안에 있는것이면
+
+               position = sq.poll() + w + 1; // 위치는 기지국의 전파범위 오른쪽 끝의 다음위치로 간다
+
+           }else {// 그렇지 않다면
+
+               answer += 1; // 기지국 설치
+               position += w + 1 + w; // 최대 전파범위(왼) + 현재위치 + 최대 전파범위(오)
+               // -> 전체 전파범위 == w * 2 + 1
+
+           }
+
+        }
+*/
+
+
+/*
+        // 내풀이
         // 아파트의 개수
         int n = 11;
 
@@ -14,6 +76,7 @@ public class 기지국0323 {
 
         // 답
         int answer = 0;
+*/
 
     /*    for (int i = 1; i <= n; i++) {
 
@@ -25,10 +88,10 @@ public class 기지국0323 {
 
         }
         */
-        for(int i = 0; i < stations.length; i++){
+        for (int i = 0; i < stations.length; i++) {
             int tmp = stations[i] - w;
             int tmp2 = stations[i] + w;
-            for(int j = 1; j <= n; j++){
+            for (int j = 1; j <= n; j++) {
 
             }
         }
