@@ -4,10 +4,10 @@ public class 기지국0323 {
     public static void main(String[] args) {
 
         // 아파트의 개수
-        int n = 11 ;
+        int n = 11;
 
         // 기지국이 설치된 아파트의 번호
-        int[] stations = {4,11};
+        int[] stations = {4, 11};
 
         // 전파의 도달거리
         int w = 1;
@@ -15,8 +15,27 @@ public class 기지국0323 {
         // 답
         int answer = 0;
 
+    /*    for (int i = 1; i <= n; i++) {
 
-       for (int i = 0; i < stations.length; i++){
+            for (int j = 0; i < stations.length; j++) {
+
+
+
+            }
+
+        }
+        */
+        for(int i = 0; i < stations.length; i++){
+            int tmp = stations[i] - w;
+            int tmp2 = stations[i] + w;
+            for(int j = 1; j <= n; j++){
+
+            }
+        }
+
+        System.out.println(answer);
+
+      /* for (int i = 0; i < stations.length; i++){
 
            for (int j = 0; j < n; j++){
                if(j < stations[i]-1){
@@ -29,10 +48,57 @@ public class 기지국0323 {
 
                }
            }
-       }
+       }*/
 
 
 
+/*
+        // 나랑 비슷하게 푼 사람 코드
+        int answer = 0;
+
+        boolean[] apts = new boolean[n+1];
+        ArrayList<Integer> noSgn = new ArrayList<>();
+        apts[0] = true;
+        // 전파 터지는 아파트 표시
+        for (int i = 0; i < stations.length; i++) {
+            for (int j = stations[i] - w; j <= stations[i] + w; j++) {
+                try {
+                    apts[j] = true;
+                }
+                catch (Exception e) {
+                    continue;
+                }
+            }
+        }
+
+        // 안 터지는 아파트 구역별 구분
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            if (!apts[i]) {
+                sum += 1;
+                // System.out.println(i);
+            }
+            else if (apts[i] && sum != 0) {
+                noSgn.add(sum);
+                sum = 0;
+            }
+            if (i == n && sum != 0) noSgn.add(sum);
+        }
+
+        // 답 도출
+        for (int i = 0; i < noSgn.size(); i++) {
+            answer += (noSgn.get(i) / (w * 2 + 1));
+            answer += noSgn.get(i) % (w * 2 + 1) == 0 ? 0 : 1;
+        }
+        // System.out.println(noSgn.get(i));
+
+
+        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+        // System.out.println("Hello Java");
+
+        return answer;
+
+*/
 
     /*
 
