@@ -1,4 +1,4 @@
-package greedy1017;
+package greedy2210;
 
 import java.util.Arrays;
 import java.util.Scanner;

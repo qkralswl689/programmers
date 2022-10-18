@@ -1,6 +1,4 @@
-package greedy1017;
-
-import java.util.List;
+package greedy2210;
 
 public class greedy_book_01 {
     public static void main(String[] args) {
