@@ -45,7 +45,7 @@ public class DFS_book_02_2 {
         if(ice[x][y] == 0){
             ice[x][y] = 1;
 
-            // 상하 좌우 
+            // 상하 좌우
             def(x-1,y);
             def(x,y+1);
             def(x+1,y);
