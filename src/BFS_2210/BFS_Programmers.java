@@ -9,7 +9,8 @@ public class BFS_Programmers {
 
     public static int[] dx = {0,1,0,-1};
     public static int[] dy = {1,0,-1,0};
-    public static int n,m,answer;
+    public static int n,m;
+    public static int answer = 1;
     public static boolean[][] visit ;
     public static int[][] maps;
 
@@ -51,15 +52,15 @@ public class BFS_Programmers {
                 ny = y + dy[i];
 
                 if(nx <= -1 || nx >= n || ny <= -1 || ny >= m){
-                //if(nx < 1 || ny < 1 ||nx > n|| ny < m){
                     continue;
                 }else{
                     if(maps[nx][ny] == 1 && visit[nx][ny] == false){
                         answer++;
                         visit[nx][ny] = true;
+                        bfs(nx,ny);
                         break;
-                    }else{
-                        continue;
+                    }else {
+
                     }
 
                 }
