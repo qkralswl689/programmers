@@ -10,8 +10,7 @@ public class BFS_Programmers {
     public static int[] dx = {0,1,0,-1};
     public static int[] dy = {1,0,-1,0};
     public static int n,m;
-    public static int answer = 1;
-    public static boolean[][] visit ;
+    public static int[][] visit ;
     public static int[][] maps;
 
     public static void main(String[] args) {
@@ -20,7 +19,7 @@ public class BFS_Programmers {
 
         n = sc.nextInt();
         m = sc.nextInt();
-        visit = new boolean[n][m];
+        visit = new  int[n][m];
         maps = new int[n][m];
          //maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
 
@@ -31,38 +30,42 @@ public class BFS_Programmers {
              }
          }
 
-       bfs(0,0);
+       bfs(maps,visit);
+
+         int answer = visit[n -1][m-1];
+
+         if(answer == 0){
+             answer = -1;
+         }
         System.out.println(answer);
 
     }
 
-    public static void bfs(int x, int y){
-        Queue<Integer> q = new LinkedList<>();
-        int nx = 0;
-        int ny = 0;
-        q.add(maps[x][y]);
-        visit[x][y] = true;
+    public static void bfs(int[][]maps , int[][]visit){
+
+        int x = 0;
+        int y = 0;
+        visit[x][y] = 1;
+
+        Queue<int[]> q = new LinkedList<>();
+        q.add(new int[]{x,y});
+
 
         while (!q.isEmpty()){
-
-            int k = q.poll();
+            int[] cu = q.poll();
+            int nx = cu[0];
+            int ny = cu[1];
 
             for(int i = 0; i < 4; i ++){
-                nx = x + dx[i];
-                ny = y + dy[i];
+                int tx = nx + dx[i];
+                int ty = ny + dy[i];
 
-                if(nx <= -1 || nx >= n || ny <= -1 || ny >= m){
+                if(tx <= -1 || tx >= n || ty <= -1 || ty >= m) {
                     continue;
-                }else{
-                    if(maps[nx][ny] == 1 && visit[nx][ny] == false){
-                        answer++;
-                        visit[nx][ny] = true;
-                        bfs(nx,ny);
-                        break;
-                    }else {
-
-                    }
-
+                }
+                if (maps[tx][ty] == 1 && visit[tx][ty] == 0) {
+                    visit[tx][ty] = visit[nx][ny] + 1;
+                    q.add(new int[]{tx,ty});
                 }
             }
         }
