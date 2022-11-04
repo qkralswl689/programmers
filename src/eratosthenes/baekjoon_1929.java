@@ -15,6 +15,7 @@ public class baekjoon_1929 {
         num[0] = true;
         num[1] = true;
         //Math.sqrt() 제곱근 구하는 함수
+        // 제곱근 : 어떤수 X를 제곱하여 X가 되는 수
         for(int i = n; i <=m; i++){
             int result = 0;
             int x = (int)Math.sqrt(i);
@@ -35,7 +36,7 @@ public class baekjoon_1929 {
             }
         }
 
-         }
+    }
         // 시간초과 (동빈나)
 //        for(int i = 0; i <= m ; i++ ){
 //            num[i] = i ;
