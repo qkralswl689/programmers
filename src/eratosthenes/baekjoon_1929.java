@@ -23,7 +23,7 @@ public class baekjoon_1929 {
                 result++;
             }
 
-            for(int j = 2; j < x; j++){
+            for(int j = 2; j <= x; j++){
                 if(i % j == 0){
                     result++;
                     break;
